@@ -80,13 +80,52 @@ Les règles communes aux skills petite entreprise sont dans `.claude/shared/` : 
 |---|---|
 | obsidian-markdown, obsidian-bases, json-canvas | kepano/obsidian-skills |
 
-## Utilisation
+## Installation
 
-- **Dans ce dépôt :** ouvrir le dépôt avec Claude Code, les skills sont disponibles directement.
-- **Dans un autre projet :** copier le dossier `.claude/skills/<nom>/` voulu dans le `.claude/skills/` de ce projet.
-- **Pour tous vos projets :** copier le dossier dans `~/.claude/skills/`.
+### Méthode 1 : par plugin, dans Claude Code (recommandée)
 
-Certains skills s'appuient sur d'autres (par exemple writing-plans sur executing-plans, grill-me sur grilling) : copiez-les ensemble.
+La bibliothèque est aussi un catalogue de plugins Claude Code. Chaque domaine est un plugin que l'on installe en une commande, sans rien copier à la main. À taper dans Claude Code (version 2.1.275 ou plus récente) :
+
+| Plugin | Contenu | Commande |
+|---|---|---|
+| methode-dev | Méthode de développement (16 skills) | `/plugin install methode-dev --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| agents-ia | Performance des agents IA (6) | `/plugin install agents-ia --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| web-react | Ingénierie web, React, WordPress (11) | `/plugin install web-react --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| design | Design, animation, motion design (17) | `/plugin install design --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| securite | Cybersécurité défensive (5) | `/plugin install securite --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| business | Gérer le business : vente, rendez-vous, clients, incidents (55) | `/plugin install business --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| marketing | Marketing (4) | `/plugin install marketing --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| produit | Gestion de produit (7) | `/plugin install produit --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| science-donnees | Science, données et IA (8) | `/plugin install science-donnees --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| notes-obsidian | Notes avec Obsidian (3) | `/plugin install notes-obsidian --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+
+Sur une version plus ancienne de Claude Code, ajoutez d'abord le catalogue, puis installez le plugin voulu :
+
+```
+/plugin marketplace add adewaleayinla84-cell/Biblioth-que-de-skills
+/plugin install business@bibliotheque-de-skills
+```
+
+Conseil : n'installez que les domaines utiles. Avec trop de skills, Claude choisit moins bien le bon. Le skill writing-skills (plugin agents-ia) s'appuie sur test-driven-development : installez aussi methode-dev.
+
+### Méthode 2 : copie manuelle, dans Claude Code
+
+Pour tout installer pour tous vos projets :
+
+```bash
+git clone https://github.com/adewaleayinla84-cell/Biblioth-que-de-skills
+mkdir -p ~/.claude/skills ~/.claude/shared
+cp -r Biblioth-que-de-skills/.claude/skills/* ~/.claude/skills/
+cp -r Biblioth-que-de-skills/.claude/shared/* ~/.claude/shared/
+```
+
+Le dossier `shared` est indispensable aux skills petite entreprise. Attention : un skill déjà installé sous le même nom est remplacé.
+
+Pour un seul projet, copiez plutôt les dossiers voulus dans le `.claude/skills/` de ce projet. Pour tester sans rien installer, ouvrez simplement ce dépôt avec Claude Code : les 132 skills y sont disponibles.
+
+### Méthode 3 : application Claude (claude.ai, bureau, mobile)
+
+Les skills s'ajoutent un par un depuis les réglages de l'application, sous forme de fichier ZIP du dossier du skill. Pour les skills petite entreprise, installez plutôt le plugin officiel « Small Business » depuis [claude.com/plugins](https://claude.com/plugins) : ils ont besoin du dossier `shared`.
 
 ## Faire tourner le business en votre absence
 
