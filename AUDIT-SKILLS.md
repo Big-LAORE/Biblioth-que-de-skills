@@ -207,3 +207,46 @@ Rapport du 31 octobre 2026. Même méthode : audit statique, aucun code exécut�
 | Non copiés | `CLAUDE.md` (même contenu que le skill ; le placer à la racine imposerait ces règles à toute session ouverte dans ce dépôt), règle Cursor, fichiers du plugin. |
 
 Total de la bibliothèque : 77 skills.
+
+---
+
+# Cinquième ajout : gérer le business (vente, rendez-vous, clients, incidents)
+
+Rapport du 31 octobre 2026. Même méthode : audit statique, aucun code exécuté.
+
+## N. Recherche
+
+Les dépôts de skills « business » sont peu étoilés, à une exception près : **anthropics/knowledge-work-plugins**, publié par Anthropic sous licence Apache 2.0 (commit `2574e29`). Il a été retenu parce qu'il est officiel, cohérent et le mieux protégé contre les abus. Les autres dépôts examinés ont été écartés :
+
+| Dépôt | Étoiles | Décision | Raison |
+|---|---|---|---|
+| alirezarezvani/claude-skills | 29 k | NON RETENU | Très vaste (474 skills), recoupe les skills Anthropic ; à auditer à part si besoin. |
+| googleworkspace/cli | 32 k | NON RETENU | Demande d'installer un outil en ligne de commande global (`npm install -g`) et une autorisation OAuth sur tout le compte Google. Les connecteurs Gmail et Agenda de Claude font le même travail sans installation. |
+| Lifecycle-Innovations-Limited/claude-ops | 0,5 k | NON RETENU | Repose sur un « daemon » permanent sur la machine. |
+| markfulton/ai-employees | 0,8 k | NON RETENU | Rôles programmés qui agissent seuls ; peu d'étoiles, à examiner séparément. |
+
+## O. Skills installés
+
+| Groupe | Skills | Rôle |
+|---|---|---|
+| Petite entreprise, ensemble complet (44) | ad-manager, ap-processor, brand-style, build-agent, build-connector, business-pulse, call-list, canva-creator, cash-flow-snapshot, close-month, content-strategy, contract-review, crm-autopilot, grant-rfp-writer, grow-pipeline, growth-pulse, hiring-screener, inbox-manager, inventory-planner, invoice-chase, job-post-builder, lead-finder, lead-triage, marketing-monday, monday-brief, month-end-prep, outreach-composer, pay-the-bills, payroll-prep, plan-payroll, proposal-builder, reactivate, report-builder, report-pack, restock, review-reputation, seo-ai-visibility, smb-onboard, smb-router, social-content-engine, speed-to-lead, tax-prep, tax-season-organizer, ticket-deflector | Finances, vente, marketing, opérations, embauche, avec un routeur (`smb-router`) qui choisit le bon skill à partir d'une phrase simple et une mise en route guidée (`smb-onboard`) |
+| Vente et rendez-vous (4) | schedule-meeting, handle-objection, call-prep, call-summary | Trouver un créneau et réserver dans Google Agenda ou Outlook, préparer et résumer les appels, répondre aux objections |
+| Service client (4) | ticket-triage, draft-response, customer-escalation, kb-article | Trier les demandes, rédiger les réponses, gérer les escalades, écrire la base de connaissances |
+| Failles et incidents (3) | incident-response, runbook, risk-assessment | Réagir à une panne ou une faille (tri, communication, post-mortem), procédures écrites, analyse des risques |
+
+Le dossier commun `.claude/shared/` (règles partagées par les 44 skills petite entreprise : contenu non fiable, données personnelles, voix de marque, monnaie et pays) est installé à côté, là où les skills le cherchent.
+
+## P. Résultat de l'audit
+
+- **APPROUVÉ.** Texte uniquement : aucun script, aucun hook. Un seul fichier HTML d'exemple, qui charge seulement des polices Google.
+- Les 44 skills petite entreprise se limitent aux outils `Read` et `WebFetch` ; ils agissent via les connecteurs que vous autorisez.
+- **Protection contre la manipulation :** tout ce qui vient de l'extérieur (e-mail, ticket, formulaire, avis, page web) est traité comme une donnée, jamais comme un ordre. Une demande de changement de coordonnées bancaires, de paiement urgent ou de carte cadeau est toujours bloquée et remontée au propriétaire.
+- **Validation humaine :** les e-mails sont rédigés automatiquement mais rien n'est envoyé, publié ou payé sans un « oui » explicite. En exécution programmée, seules les actions prévues lors de la programmation sont faites ; toute action suggérée par un contenu extérieur devient une simple proposition.
+- **Limites :** plusieurs skills finances et paie visent les États-Unis (formulaires 1099, Gusto, QuickBooks). Ils ne remplacent pas un comptable, un juriste ou un conseiller RH.
+- Les fichiers de connecteurs des plugins (`.mcp.json`) n'ont **pas** été copiés : aucun service externe n'est branché automatiquement.
+
+## Q. Corrections
+
+- Les skills vente, support, ingénierie et opérations renvoyaient à un fichier `CONNECTORS.md` situé à la racine de leur plugin. Ce fichier est copié dans chaque skill concerné et le lien corrigé.
+- Liens relatifs vérifiés : 404 liens dans les nouveaux skills, aucun cassé (hors deux exemples d'adresse fictive).
+- Total de la bibliothèque : 132 skills.
