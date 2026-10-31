@@ -93,3 +93,73 @@ Toutes les installations ont été faites de la même façon.
 - **Domaines encore peu couverts :** motion design avec After Effects, Premiere Pro et Blender (aucun Skill sérieux trouvé ; Remotion couvre seulement la vidéo en code), Figma (passe plutôt par un connecteur), préparation de fichiers pour l'impression.
 - **Doublons à éviter :** n'ajoutez pas Uxcel product-skills ni claude-seo en plus de cro, copywriting et seo-audit.
 - **Prochaines étapes :** installer Superpowers depuis le répertoire officiel des plugins si vous développez régulièrement ; réauditer chaque Skill avant une mise à jour, car leur contenu change.
+
+---
+
+# Deuxième vague : les skills les plus étoilés par domaine
+
+Rapport du 31 octobre 2026. Même méthode que la première vague : audit statique dans un environnement cloud isolé, sans secrets, sans exécuter le code des skills.
+
+## F. Résumé
+
+| Indicateur | Résultat |
+|---|---|
+| Source du classement | [linkly.ai/skills/top-repos](https://linkly.ai/skills/top-repos) (nombre d'étoiles GitHub au 31/10/2026) |
+| Dépôts clonés et examinés | 21 |
+| Skills candidats audités | 61 |
+| Installés | 58, dans `.claude/skills/` |
+| Écartés | 6 dépôts ou skills (voir section H) |
+| Corrections apportées | 4 (voir section I) |
+| Total de la bibliothèque | 71 skills |
+
+**Ce qui a été vérifié :** chaque fichier des candidats, avec la même recherche de motifs à risque que la première vague (téléchargements, `curl | bash`, envoi de données, secrets et variables d'environnement, commandes destructrices, code obfusqué, persistance, `sudo`, contournement des permissions, injection de prompt, caractères invisibles, binaires, hooks, `allowed-tools`). Chaque alerte a ensuite été relue à la main. Les archives binaires ont été ouvertes et inspectées. Les scripts Python ont été compilés et les scripts JavaScript vérifiés avec `node --check`, sans être exécutés.
+
+**Exclus de la copie :** dossiers `tests/`, `evals/`, fichiers `*.test.*`, caches.
+
+## G. Skills installés (deuxième vague)
+
+| Domaine | Skills | Source (étoiles) | Commit | Audit | Points d'attention |
+|---|---|---|---|---|---|
+| Méthode de développement | systematic-debugging, test-driven-development, verification-before-completion, writing-plans, executing-plans, subagent-driven-development, brainstorming, receiving-code-review, requesting-code-review, using-git-worktrees, finishing-a-development-branch | obra/superpowers (309 k, MIT) | `2ce8aa1` | APPROUVÉ | brainstorming peut lancer un petit serveur local (127.0.0.1, jeton, contrôle d'origine), seulement si l'utilisateur accepte. finishing-a-development-branch ne supprime une branche qu'après avoir fait taper « discard » à l'utilisateur. |
+| Conception, architecture | grill-me, grilling, improve-codebase-architecture, codebase-design | mattpocock/skills (307 k, MIT) | `a496f55` | APPROUVÉ | Texte uniquement. grill-me ne se lance que sur demande. |
+| Officiels Anthropic | frontend-design, skill-creator, web-artifacts-builder, algorithmic-art | anthropics/skills (185 k, Apache 2.0) | `ca45fc4` | APPROUVÉ (corrigé) | skill-creator lance `claude -p` pour ses évaluations et un serveur de relecture sur 127.0.0.1. web-artifacts-builder installe des paquets npm (voir correction). |
+| Économie de code | ponytail | DietrichGebert/ponytail (181 k, MIT) | `96608e0` | APPROUVÉ | Texte uniquement ; les hooks du dépôt n'ont pas été copiés. |
+| Ingénierie web | performance-optimization, api-and-interface-design, ci-cd-and-automation, documentation-and-adrs | addyosmani/agent-skills (112 k, MIT) | `8bfcc1f` | APPROUVÉ | Texte uniquement. |
+| Design de sites | design-taste-frontend | Leonxlnx/taste-skill (106 k, MIT) | `12af471` | APPROUVÉ | Ses scripts interrogent des banques d'images libres (Openverse, Wikimedia, NASA, Met, Art Institute of Chicago) avec des mots-clés uniquement, et pilotent un Chrome sans interface avec un profil temporaire, en local. |
+| Animation d'interface | emil-design-eng, review-animations, animation-performance | emilkowalski/skills (52 k, MIT) | `a81dbca` | APPROUVÉ | Texte uniquement. |
+| Motion design web | gsap-core, gsap-timeline, gsap-scrolltrigger, gsap-react, gsap-plugins, gsap-performance, gsap-utils, gsap-frameworks | greensock/gsap-skills (17,6 k, MIT, éditeur officiel de GSAP) | `aed9cfd` | APPROUVÉ | Texte uniquement. Comble en partie le manque « motion design » signalé en section E. |
+| Cybersécurité | security-audit | cloudflare/security-audit-skill (54 k, MIT) | `c1c8a8c` | APPROUVÉ | Démarche défensive. Deux validateurs Node locaux, sans réseau. |
+| Science et données | scientific-writing, statistical-analysis, exploratory-data-analysis, scientific-visualization, literature-review | K-Dense-AI/scientific-agent-skills (55 k, MIT) | `5f2bc03` | APPROUVÉ (note ajoutée) | literature-review interroge PubMed, arXiv, Semantic Scholar, OpenAlex ; l'option de schémas par IA envoie du texte à OpenRouter. statistical-analysis installe quelques paquets sans version figée (pandas, matplotlib, seaborn). |
+| Notes, Obsidian | obsidian-markdown, obsidian-bases, json-canvas | kepano/obsidian-skills (50 k, MIT, créateur d'Obsidian) | `3ccff53` | APPROUVÉ | Texte uniquement. |
+| Gestion de produit | create-prd, user-stories, prioritization-frameworks, pre-mortem, market-sizing, competitor-analysis, pricing-strategy | phuryn/pm-skills (27,5 k, MIT) | `2a12295` | APPROUVÉ | Texte uniquement. |
+| React | vercel-react-best-practices, vercel-composition-patterns | vercel-labs/agent-skills (33 k) | `1a2c79d` | APPROUVÉ | Licence MIT déclarée dans le SKILL.md, mais aucun fichier de licence dans le dépôt. |
+| IA, apprentissage automatique | transformers-js, huggingface-gradio, huggingface-datasets | huggingface/skills (11 k, Apache 2.0) | `25910b3` | APPROUVÉ | Documentation d'API ; un jeton Hugging Face n'est demandé que pour les jeux de données privés. |
+| Diagrammes | drawio-skill | Agents365-ai/drawio-skill (10,5 k, MIT) | `5727082` | APPROUVÉ | Ne se lance que sur demande (`disable-model-invocation`). Peut télécharger des icônes depuis des CDN publics. L'archive `shape-index.json.gz` a été ouverte : c'est un catalogue de formes JSON. |
+
+## H. Écartés
+
+| Candidat | Étoiles | Décision | Raison |
+|---|---|---|---|
+| impeccable (pbakaus/impeccable) | 97 k | REJETÉ | Télécharge à l'exécution un programme binaire depuis les « releases » GitHub (contenu non auditable) et propose d'installer des hooks dans `.claude/settings`. Doublon de design-taste-frontend et frontend-design. |
+| planning-with-files (OthmanAdi) | 28 k | REJETÉ | Déclare dans son SKILL.md des hooks qui s'exécutent à chaque message, avant et après chaque outil, à l'arrêt et à la compaction, avec un repli vers des scripts de `~/.claude`. Trop invasif, même règle que gh-cli et modern-python. |
+| hyperframes (heygen-com) | 76 k | À EXAMINER | Repose sur `npx hyperframes` sans version figée : le code réellement exécuté change à chaque publication. Lié au forfait HeyGen. |
+| caveman (JuliusBrussee) | 116 k | NON INSTALLÉ | Sain, mais renvoie vers d'autres skills et des hooks du même dépôt ; objectif proche de ponytail. |
+| doc-coauthoring (anthropics/skills) | 185 k | NON INSTALLÉ | Aucun fichier de licence dans son dossier et le dépôt ne précise pas lequel est open source. |
+| docx, pdf, pptx, xlsx (anthropics/skills) | 185 k | NON INSTALLÉ | Licence « source-available », pas open source : redistribution non autorisée. Déjà actifs sur le compte. |
+
+## I. Corrections apportées par l'audit
+
+1. **web-artifacts-builder** : le script `init-artifact.sh` installait pnpm globalement sur la machine (`npm install -g pnpm`) sans rien demander. Il s'arrête désormais avec un message qui demande à l'utilisateur de l'installer lui-même.
+2. **Skills superpowers** : les renvois `superpowers:<nom>` ne fonctionnaient que dans le plugin d'origine. Ils pointent maintenant vers les skills installés ici. Les skills dont dépendent writing-plans et executing-plans (using-git-worktrees, requesting-code-review, finishing-a-development-branch) ont été ajoutés pour éviter des renvois cassés.
+3. **grill-me et improve-codebase-architecture** : ajout de grilling et codebase-design, qu'ils appellent.
+4. **literature-review** : ajout d'un avertissement en tête du SKILL.md. L'envoi de texte à OpenRouter exige l'accord de l'utilisateur et est déconseillé pour un manuscrit confidentiel.
+
+Chaque dossier contient le fichier de licence d'origine (copié depuis la racine du dépôt source quand le dossier n'en avait pas), sauf les deux skills Vercel, dont le dépôt n'en fournit pas.
+
+## J. Vérifications finales
+
+- Le nom déclaré dans chaque SKILL.md est identique au nom du dossier (71/71).
+- Aucun skill installé ne déclare de hook.
+- Nouvelle analyse de toute la bibliothèque : les seules alertes restantes se trouvent dans des exemples pédagogiques des skills de sécurité de la première vague (owasp-security, sharp-edges).
+- Scripts Python compilés et scripts JavaScript vérifiés sans erreur.
+- Désinstallation : supprimer le dossier `.claude/skills/<nom>/`, ou `git revert` du commit.

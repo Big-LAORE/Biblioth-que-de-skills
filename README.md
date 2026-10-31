@@ -3,28 +3,69 @@ La plus grande bibliothèque de skills à utiliser dans Claude
 
 ## Contenu
 
-13 Skills audités, rangés dans `.claude/skills/` (ils sont détectés automatiquement par Claude Code quand ce dépôt est ouvert). Le rapport d'audit complet se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
+71 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
 
-| Skill | Domaine | Source |
-|---|---|---|
-| [ads](.claude/skills/ads/) | Publicité Meta, Google, TikTok | coreyhaines31/marketingskills |
-| [canvas-design](.claude/skills/canvas-design/) | Design graphique | anthropics/skills |
-| [copywriting](.claude/skills/copywriting/) | Marketing | coreyhaines31/marketingskills |
-| [cro](.claude/skills/cro/) | Marketing, conversion | coreyhaines31/marketingskills |
-| [differential-review](.claude/skills/differential-review/) | Cybersécurité, revue de code | trailofbits/skills |
-| [mcp-builder](.claude/skills/mcp-builder/) | IA, intégrations | anthropics/skills |
-| [owasp-security](.claude/skills/owasp-security/) | Cybersécurité | agamm/claude-code-owasp |
-| [seo-audit](.claude/skills/seo-audit/) | Marketing, SEO | coreyhaines31/marketingskills |
-| [sharp-edges](.claude/skills/sharp-edges/) | Cybersécurité | trailofbits/skills |
-| [supply-chain-risk-auditor](.claude/skills/supply-chain-risk-auditor/) | Cybersécurité, dépendances | trailofbits/skills |
-| [theme-factory](.claude/skills/theme-factory/) | Design, thèmes visuels | anthropics/skills |
-| [webapp-testing](.claude/skills/webapp-testing/) | Tests web | anthropics/skills |
-| [wp-plugin-development](.claude/skills/wp-plugin-development/) | Développement WordPress | WordPress/agent-skills |
+Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. Chaque dossier garde la licence de sa source.
 
-Chaque Skill conserve son fichier `LICENSE.txt` d'origine.
+### Méthode de développement
+| Skill | Source |
+|---|---|
+| systematic-debugging, test-driven-development, verification-before-completion | obra/superpowers |
+| brainstorming, writing-plans, executing-plans, subagent-driven-development | obra/superpowers |
+| requesting-code-review, receiving-code-review | obra/superpowers |
+| using-git-worktrees, finishing-a-development-branch | obra/superpowers |
+| grill-me, grilling, improve-codebase-architecture, codebase-design | mattpocock/skills |
+| ponytail | DietrichGebert/ponytail |
+
+### Ingénierie web et React
+| Skill | Source |
+|---|---|
+| performance-optimization, api-and-interface-design, ci-cd-and-automation, documentation-and-adrs | addyosmani/agent-skills |
+| vercel-react-best-practices, vercel-composition-patterns | vercel-labs/agent-skills |
+| webapp-testing, web-artifacts-builder, mcp-builder, skill-creator | anthropics/skills |
+| wp-plugin-development | WordPress/agent-skills |
+
+### Design, animation et motion design
+| Skill | Source |
+|---|---|
+| frontend-design, canvas-design, theme-factory, algorithmic-art | anthropics/skills |
+| design-taste-frontend | Leonxlnx/taste-skill |
+| emil-design-eng, review-animations, animation-performance | emilkowalski/skills |
+| gsap-core, gsap-timeline, gsap-scrolltrigger, gsap-react, gsap-plugins, gsap-performance, gsap-utils, gsap-frameworks | greensock/gsap-skills |
+| drawio-skill | Agents365-ai/drawio-skill |
+
+### Cybersécurité
+| Skill | Source |
+|---|---|
+| security-audit | cloudflare/security-audit-skill |
+| owasp-security | agamm/claude-code-owasp |
+| sharp-edges, differential-review, supply-chain-risk-auditor | trailofbits/skills |
+
+### Marketing
+| Skill | Source |
+|---|---|
+| copywriting, cro, seo-audit, ads | coreyhaines31/marketingskills |
+
+### Gestion de produit
+| Skill | Source |
+|---|---|
+| create-prd, user-stories, prioritization-frameworks, pre-mortem, market-sizing, competitor-analysis, pricing-strategy | phuryn/pm-skills |
+
+### Science, données et IA
+| Skill | Source |
+|---|---|
+| scientific-writing, statistical-analysis, exploratory-data-analysis, scientific-visualization, literature-review | K-Dense-AI/scientific-agent-skills |
+| transformers-js, huggingface-gradio, huggingface-datasets | huggingface/skills |
+
+### Notes et connaissances
+| Skill | Source |
+|---|---|
+| obsidian-markdown, obsidian-bases, json-canvas | kepano/obsidian-skills |
 
 ## Utilisation
 
-- **Dans ce dépôt :** ouvrir le dépôt avec Claude Code, les Skills sont disponibles directement.
+- **Dans ce dépôt :** ouvrir le dépôt avec Claude Code, les skills sont disponibles directement.
 - **Dans un autre projet :** copier le dossier `.claude/skills/<nom>/` voulu dans le `.claude/skills/` de ce projet.
 - **Pour tous vos projets :** copier le dossier dans `~/.claude/skills/`.
+
+Certains skills s'appuient sur d'autres (par exemple writing-plans sur executing-plans, grill-me sur grilling) : copiez-les ensemble.
