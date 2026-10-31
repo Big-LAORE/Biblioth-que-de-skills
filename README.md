@@ -3,7 +3,7 @@ La plus grande bibliothèque de skills à utiliser dans Claude
 
 ## Contenu
 
-76 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
+77 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
 
 Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. Chaque dossier garde la licence de sa source.
 
@@ -23,6 +23,7 @@ Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. 
 | context-engineering | addyosmani/agent-skills |
 | dispatching-parallel-agents, writing-skills | obra/superpowers |
 | writing-for-agents, handoff | mattpocock/skills |
+| karpathy-guidelines | multica-ai/andrej-karpathy-skills |
 
 ### Ingénierie web et React
 | Skill | Source |

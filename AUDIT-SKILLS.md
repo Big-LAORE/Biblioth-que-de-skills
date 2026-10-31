@@ -185,3 +185,25 @@ Rapport du 31 octobre 2026. Même méthode : audit statique, aucun code exécut�
 - **writing-skills** : les renvois `superpowers:<nom>` pointent maintenant vers les skills installés ici (test-driven-development, systematic-debugging, writing-skills).
 - Nom déclaré identique au nom du dossier, licence présente, aucun hook, `render-graphs.js` validé avec `node --check`.
 - Total de la bibliothèque : 76 skills.
+
+---
+
+# Quatrième ajout : Karpathy guidelines
+
+Rapport du 31 octobre 2026. Même méthode : audit statique, aucun code exécuté.
+
+## M. Résultat
+
+| Élément | Détail |
+|---|---|
+| Skill | karpathy-guidelines |
+| Source | multica-ai/andrej-karpathy-skills (174 k étoiles), commit `2c60614` |
+| Auteur | forrestchang, à partir d'observations publiques d'Andrej Karpathy. Ce n'est pas un texte écrit par Karpathy lui-même. |
+| Licence | MIT, déclarée dans le SKILL.md, le plugin.json et le README ; le dépôt ne contient aucun fichier de licence. |
+| Contenu | Quatre règles de comportement : réfléchir avant de coder, viser la simplicité, ne modifier que le nécessaire, définir des critères de réussite vérifiables. |
+| Audit | APPROUVÉ. Texte uniquement : aucun script, aucun hook, aucun accès réseau. |
+| Alertes relues | Uniquement dans des exemples de code (`requests.post`) et dans le README, qui propose d'installer le fichier avec `curl` depuis la branche `main` (version non figée). La copie installée ici est figée au commit audité. |
+| Amélioration | Le fichier d'exemples avant/après du dépôt (`EXAMPLES.md`) est ajouté au skill sous `examples.md`, avec un lien en fin de SKILL.md. |
+| Non copiés | `CLAUDE.md` (même contenu que le skill ; le placer à la racine imposerait ces règles à toute session ouverte dans ce dépôt), règle Cursor, fichiers du plugin. |
+
+Total de la bibliothèque : 77 skills.
