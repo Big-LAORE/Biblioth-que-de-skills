@@ -6,12 +6,12 @@
 [![Plugins](https://img.shields.io/badge/plugins_Claude_Code-10-blueviolet)](#installation)
 [![Audit](https://img.shields.io/badge/audit_s%C3%A9curit%C3%A9-publi%C3%A9-brightgreen)](AUDIT-SKILLS.md)
 [![Licences](https://img.shields.io/badge/licences-MIT_%7C_Apache_2.0_%7C_CC_BY--SA_%7C_GPL-lightgrey)](#contenu)
-[![Stars](https://img.shields.io/github/stars/adewaleayinla84-cell/Biblioth-que-de-skills?style=social)](https://github.com/adewaleayinla84-cell/Biblioth-que-de-skills/stargazers)
+[![Stars](https://img.shields.io/github/stars/Big-LAORE/Biblioth-que-de-skills?style=social)](https://github.com/Big-LAORE/Biblioth-que-de-skills/stargazers)
 
 Installer un domaine en une commande, dans Claude Code :
 
 ```
-/plugin install business --marketplace adewaleayinla84-cell/Biblioth-que-de-skills
+/plugin install business --marketplace Big-LAORE/Biblioth-que-de-skills
 ```
 
 Remplacez `business` par `methode-dev`, `agents-ia`, `web-react`, `design`, `securite`, `marketing`, `produit`, `science-donnees` ou `notes-obsidian`. Détails dans [Installation](#installation).
@@ -26,7 +26,7 @@ Remplacez `business` par `methode-dev`, `agents-ia`, `web-react`, `design`, `sec
 - **Ten Claude Code plugins**, one per field. Install one with:
 
   ```
-  /plugin install <plugin> --marketplace adewaleayinla84-cell/Biblioth-que-de-skills
+  /plugin install <plugin> --marketplace Big-LAORE/Biblioth-que-de-skills
   ```
 
   Plugins: `methode-dev` (dev workflow), `agents-ia` (AI agents), `web-react`, `design`, `securite` (security), `business`, `marketing`, `produit` (product), `science-donnees` (science and data), `notes-obsidian`.
@@ -122,21 +122,21 @@ La bibliothèque est aussi un catalogue de plugins Claude Code. Chaque domaine e
 
 | Plugin | Contenu | Commande |
 |---|---|---|
-| methode-dev | Méthode de développement (16 skills) | `/plugin install methode-dev --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| agents-ia | Performance des agents IA (6) | `/plugin install agents-ia --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| web-react | Ingénierie web, React, WordPress (11) | `/plugin install web-react --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| design | Design, animation, motion design (17) | `/plugin install design --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| securite | Cybersécurité défensive (5) | `/plugin install securite --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| business | Gérer le business : vente, rendez-vous, clients, incidents (55) | `/plugin install business --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| marketing | Marketing (4) | `/plugin install marketing --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| produit | Gestion de produit (7) | `/plugin install produit --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| science-donnees | Science, données et IA (8) | `/plugin install science-donnees --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
-| notes-obsidian | Notes avec Obsidian (3) | `/plugin install notes-obsidian --marketplace adewaleayinla84-cell/Biblioth-que-de-skills` |
+| methode-dev | Méthode de développement (16 skills) | `/plugin install methode-dev --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| agents-ia | Performance des agents IA (6) | `/plugin install agents-ia --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| web-react | Ingénierie web, React, WordPress (11) | `/plugin install web-react --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| design | Design, animation, motion design (17) | `/plugin install design --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| securite | Cybersécurité défensive (5) | `/plugin install securite --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| business | Gérer le business : vente, rendez-vous, clients, incidents (55) | `/plugin install business --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| marketing | Marketing (4) | `/plugin install marketing --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| produit | Gestion de produit (7) | `/plugin install produit --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| science-donnees | Science, données et IA (8) | `/plugin install science-donnees --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| notes-obsidian | Notes avec Obsidian (3) | `/plugin install notes-obsidian --marketplace Big-LAORE/Biblioth-que-de-skills` |
 
 Sur une version plus ancienne de Claude Code, ajoutez d'abord le catalogue, puis installez le plugin voulu :
 
 ```
-/plugin marketplace add adewaleayinla84-cell/Biblioth-que-de-skills
+/plugin marketplace add Big-LAORE/Biblioth-que-de-skills
 /plugin install business@bibliotheque-de-skills
 ```
 
@@ -147,7 +147,7 @@ Conseil : n'installez que les domaines utiles. Avec trop de skills, Claude chois
 Pour tout installer pour tous vos projets :
 
 ```bash
-git clone https://github.com/adewaleayinla84-cell/Biblioth-que-de-skills
+git clone https://github.com/Big-LAORE/Biblioth-que-de-skills
 mkdir -p ~/.claude/skills ~/.claude/shared
 cp -r Biblioth-que-de-skills/.claude/skills/* ~/.claude/skills/
 cp -r Biblioth-que-de-skills/.claude/shared/* ~/.claude/shared/
