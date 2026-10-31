@@ -1,5 +1,39 @@
-# Bibliotheque-de-skills
-La plus grande bibliothèque de skills à utiliser dans Claude
+# Bibliothèque de skills Claude, auditée
+
+**132 skills Claude audités pour la sécurité**, choisis parmi les dépôts GitHub les plus étoilés de chaque domaine. Chaque skill a été relu avant d'être ajouté, et le rapport d'audit est public.
+
+[![Skills](https://img.shields.io/badge/skills-132-blue)](#contenu)
+[![Plugins](https://img.shields.io/badge/plugins_Claude_Code-10-blueviolet)](#installation)
+[![Audit](https://img.shields.io/badge/audit_s%C3%A9curit%C3%A9-publi%C3%A9-brightgreen)](AUDIT-SKILLS.md)
+[![Licences](https://img.shields.io/badge/licences-MIT_%7C_Apache_2.0_%7C_CC_BY--SA_%7C_GPL-lightgrey)](#contenu)
+[![Stars](https://img.shields.io/github/stars/adewaleayinla84-cell/Biblioth-que-de-skills?style=social)](https://github.com/adewaleayinla84-cell/Biblioth-que-de-skills/stargazers)
+
+Installer un domaine en une commande, dans Claude Code :
+
+```
+/plugin install business --marketplace adewaleayinla84-cell/Biblioth-que-de-skills
+```
+
+Remplacez `business` par `methode-dev`, `agents-ia`, `web-react`, `design`, `securite`, `marketing`, `produit`, `science-donnees` ou `notes-obsidian`. Détails dans [Installation](#installation).
+
+---
+
+## English
+
+**A security-audited library of 132 Claude skills**, picked from the most-starred and official skill repositories on GitHub in each field: development workflow, AI agent performance, web and React, design and motion (GSAP), defensive security, running a small business (sales, scheduling, customer support, incidents), marketing, product management, science and data, and Obsidian notes.
+
+- **Audited:** every file was statically reviewed before inclusion (downloads, data exfiltration, secrets, destructive commands, obfuscation, hooks, hidden characters). Rejected skills and the fixes applied are documented in [AUDIT-SKILLS.md](AUDIT-SKILLS.md) (in French).
+- **Ten Claude Code plugins**, one per field. Install one with:
+
+  ```
+  /plugin install <plugin> --marketplace adewaleayinla84-cell/Biblioth-que-de-skills
+  ```
+
+  Plugins: `methode-dev` (dev workflow), `agents-ia` (AI agents), `web-react`, `design`, `securite` (security), `business`, `marketing`, `produit` (product), `science-donnees` (science and data), `notes-obsidian`.
+- **Sources:** obra/superpowers, mattpocock/skills, anthropics/skills, anthropics/knowledge-work-plugins, addyosmani/agent-skills, Vercel, Cloudflare, Trail of Bits, GreenSock, Hugging Face, K-Dense, kepano, and more. Each skill keeps its original license.
+- **No auto-run surprises:** no installed skill declares hooks, and the business skills draft first and ask before sending, posting or paying, unless the owner set that action up in advance.
+
+---
 
 ## Contenu
 
