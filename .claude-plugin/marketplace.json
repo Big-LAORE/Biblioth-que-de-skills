@@ -1,0 +1,224 @@
+{
+  "name": "bibliotheque-de-skills",
+  "owner": {
+    "name": "adewaleayinla84-cell"
+  },
+  "metadata": {
+    "description": "132 skills audités, rangés par domaine. Rapport d'audit : AUDIT-SKILLS.md",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "methode-dev",
+      "description": "Méthode de développement : déboguer, tester, planifier, relire le code (obra/superpowers, mattpocock/skills, ponytail)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/systematic-debugging",
+        "./.claude/skills/test-driven-development",
+        "./.claude/skills/verification-before-completion",
+        "./.claude/skills/brainstorming",
+        "./.claude/skills/writing-plans",
+        "./.claude/skills/executing-plans",
+        "./.claude/skills/subagent-driven-development",
+        "./.claude/skills/requesting-code-review",
+        "./.claude/skills/receiving-code-review",
+        "./.claude/skills/using-git-worktrees",
+        "./.claude/skills/finishing-a-development-branch",
+        "./.claude/skills/grill-me",
+        "./.claude/skills/grilling",
+        "./.claude/skills/improve-codebase-architecture",
+        "./.claude/skills/codebase-design",
+        "./.claude/skills/ponytail"
+      ]
+    },
+    {
+      "name": "agents-ia",
+      "description": "Performance des agents IA : contexte, agents en parallèle, écriture de skills et de consignes, passation, règles Karpathy",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/context-engineering",
+        "./.claude/skills/dispatching-parallel-agents",
+        "./.claude/skills/writing-skills",
+        "./.claude/skills/writing-for-agents",
+        "./.claude/skills/handoff",
+        "./.claude/skills/karpathy-guidelines"
+      ]
+    },
+    {
+      "name": "web-react",
+      "description": "Ingénierie web, React, WordPress, tests et serveurs MCP (addyosmani, Vercel, Anthropic, WordPress)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/performance-optimization",
+        "./.claude/skills/api-and-interface-design",
+        "./.claude/skills/ci-cd-and-automation",
+        "./.claude/skills/documentation-and-adrs",
+        "./.claude/skills/vercel-react-best-practices",
+        "./.claude/skills/vercel-composition-patterns",
+        "./.claude/skills/webapp-testing",
+        "./.claude/skills/web-artifacts-builder",
+        "./.claude/skills/mcp-builder",
+        "./.claude/skills/skill-creator",
+        "./.claude/skills/wp-plugin-development"
+      ]
+    },
+    {
+      "name": "design",
+      "description": "Design, animation et motion design : direction artistique, GSAP, art génératif, thèmes, diagrammes draw.io",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/frontend-design",
+        "./.claude/skills/canvas-design",
+        "./.claude/skills/theme-factory",
+        "./.claude/skills/algorithmic-art",
+        "./.claude/skills/design-taste-frontend",
+        "./.claude/skills/emil-design-eng",
+        "./.claude/skills/review-animations",
+        "./.claude/skills/animation-performance",
+        "./.claude/skills/gsap-core",
+        "./.claude/skills/gsap-timeline",
+        "./.claude/skills/gsap-scrolltrigger",
+        "./.claude/skills/gsap-react",
+        "./.claude/skills/gsap-plugins",
+        "./.claude/skills/gsap-performance",
+        "./.claude/skills/gsap-utils",
+        "./.claude/skills/gsap-frameworks",
+        "./.claude/skills/drawio-skill"
+      ]
+    },
+    {
+      "name": "securite",
+      "description": "Cybersécurité défensive : audit de code, OWASP, revue de diff, API dangereuses, dépendances (Cloudflare, Trail of Bits)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/security-audit",
+        "./.claude/skills/owasp-security",
+        "./.claude/skills/sharp-edges",
+        "./.claude/skills/differential-review",
+        "./.claude/skills/supply-chain-risk-auditor"
+      ]
+    },
+    {
+      "name": "business",
+      "description": "Gérer le business : petite entreprise (44 skills), vente, rendez-vous, service client, incidents (anthropics/knowledge-work-plugins). Rien n'est envoyé ni payé sans votre accord.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/ad-manager",
+        "./.claude/skills/ap-processor",
+        "./.claude/skills/brand-style",
+        "./.claude/skills/build-agent",
+        "./.claude/skills/build-connector",
+        "./.claude/skills/business-pulse",
+        "./.claude/skills/call-list",
+        "./.claude/skills/canva-creator",
+        "./.claude/skills/cash-flow-snapshot",
+        "./.claude/skills/close-month",
+        "./.claude/skills/content-strategy",
+        "./.claude/skills/contract-review",
+        "./.claude/skills/crm-autopilot",
+        "./.claude/skills/grant-rfp-writer",
+        "./.claude/skills/grow-pipeline",
+        "./.claude/skills/growth-pulse",
+        "./.claude/skills/hiring-screener",
+        "./.claude/skills/inbox-manager",
+        "./.claude/skills/inventory-planner",
+        "./.claude/skills/invoice-chase",
+        "./.claude/skills/job-post-builder",
+        "./.claude/skills/lead-finder",
+        "./.claude/skills/lead-triage",
+        "./.claude/skills/marketing-monday",
+        "./.claude/skills/monday-brief",
+        "./.claude/skills/month-end-prep",
+        "./.claude/skills/outreach-composer",
+        "./.claude/skills/pay-the-bills",
+        "./.claude/skills/payroll-prep",
+        "./.claude/skills/plan-payroll",
+        "./.claude/skills/proposal-builder",
+        "./.claude/skills/reactivate",
+        "./.claude/skills/report-builder",
+        "./.claude/skills/report-pack",
+        "./.claude/skills/restock",
+        "./.claude/skills/review-reputation",
+        "./.claude/skills/seo-ai-visibility",
+        "./.claude/skills/smb-onboard",
+        "./.claude/skills/smb-router",
+        "./.claude/skills/social-content-engine",
+        "./.claude/skills/speed-to-lead",
+        "./.claude/skills/tax-prep",
+        "./.claude/skills/tax-season-organizer",
+        "./.claude/skills/ticket-deflector",
+        "./.claude/skills/schedule-meeting",
+        "./.claude/skills/handle-objection",
+        "./.claude/skills/call-prep",
+        "./.claude/skills/call-summary",
+        "./.claude/skills/ticket-triage",
+        "./.claude/skills/draft-response",
+        "./.claude/skills/customer-escalation",
+        "./.claude/skills/kb-article",
+        "./.claude/skills/incident-response",
+        "./.claude/skills/runbook",
+        "./.claude/skills/risk-assessment"
+      ]
+    },
+    {
+      "name": "marketing",
+      "description": "Marketing : textes, conversion, SEO, publicité (coreyhaines31/marketingskills)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/copywriting",
+        "./.claude/skills/cro",
+        "./.claude/skills/seo-audit",
+        "./.claude/skills/ads"
+      ]
+    },
+    {
+      "name": "produit",
+      "description": "Gestion de produit : PRD, user stories, priorisation, pré-mortem, taille de marché, concurrence, prix (phuryn/pm-skills)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/create-prd",
+        "./.claude/skills/user-stories",
+        "./.claude/skills/prioritization-frameworks",
+        "./.claude/skills/pre-mortem",
+        "./.claude/skills/market-sizing",
+        "./.claude/skills/competitor-analysis",
+        "./.claude/skills/pricing-strategy"
+      ]
+    },
+    {
+      "name": "science-donnees",
+      "description": "Science, données et IA : rédaction scientifique, statistiques, visualisation, revue de littérature, Hugging Face",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/scientific-writing",
+        "./.claude/skills/statistical-analysis",
+        "./.claude/skills/exploratory-data-analysis",
+        "./.claude/skills/scientific-visualization",
+        "./.claude/skills/literature-review",
+        "./.claude/skills/transformers-js",
+        "./.claude/skills/huggingface-gradio",
+        "./.claude/skills/huggingface-datasets"
+      ]
+    },
+    {
+      "name": "notes-obsidian",
+      "description": "Notes et connaissances avec Obsidian : Markdown Obsidian, Bases, JSON Canvas (kepano)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/obsidian-markdown",
+        "./.claude/skills/obsidian-bases",
+        "./.claude/skills/json-canvas"
+      ]
+    }
+  ]
+}
