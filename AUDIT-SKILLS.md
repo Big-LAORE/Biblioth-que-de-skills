@@ -163,3 +163,25 @@ Chaque dossier contient le fichier de licence d'origine (copié depuis la racine
 - Nouvelle analyse de toute la bibliothèque : les seules alertes restantes se trouvent dans des exemples pédagogiques des skills de sécurité de la première vague (owasp-security, sharp-edges).
 - Scripts Python compilés et scripts JavaScript vérifiés sans erreur.
 - Désinstallation : supprimer le dossier `.claude/skills/<nom>/`, ou `git revert` du commit.
+
+---
+
+# Troisième vague : performance des agents IA
+
+Rapport du 31 octobre 2026. Même méthode : audit statique, aucun code exécuté.
+
+## K. Skills installés
+
+| Skill | Source (étoiles) | Commit | Rôle | Audit | Points d'attention |
+|---|---|---|---|---|---|
+| context-engineering | addyosmani/agent-skills (112 k, MIT) | `8bfcc1f` | Préparer et réparer le contexte d'un agent (fichiers de règles, CLAUDE.md, reprise de session) | APPROUVÉ | Texte uniquement. L'alerte « secrets » est une consigne : ne jamais commiter de fichier `.env`. |
+| dispatching-parallel-agents | obra/superpowers (309 k, MIT) | `2ce8aa1` | Répartir des tâches indépendantes entre plusieurs agents en parallèle | APPROUVÉ | Texte uniquement. |
+| writing-skills | obra/superpowers (309 k, MIT) | `2ce8aa1` | Écrire des skills qui se déclenchent au bon moment et les tester avant usage | APPROUVÉ (corrigé) | `render-graphs.js` appelle seulement Graphviz (`dot`) avec des arguments fixes, sans shell ; l'alerte « obfuscation » venait d'une recherche par expression régulière (`regex.exec`). |
+| writing-for-agents | mattpocock/skills (307 k, MIT) | `a496f55` | Rédiger des consignes que les agents suivent bien (skills, AGENTS.md, CLAUDE.md) | APPROUVÉ | Texte uniquement. |
+| handoff | mattpocock/skills (307 k, MIT) | `a496f55` | Résumer une conversation pour qu'un autre agent reprenne le travail | APPROUVÉ | Ne se lance que sur demande (`disable-model-invocation`). Écrit son résumé dans un fichier temporaire. |
+
+## L. Corrections et vérifications
+
+- **writing-skills** : les renvois `superpowers:<nom>` pointent maintenant vers les skills installés ici (test-driven-development, systematic-debugging, writing-skills).
+- Nom déclaré identique au nom du dossier, licence présente, aucun hook, `render-graphs.js` validé avec `node --check`.
+- Total de la bibliothèque : 76 skills.
