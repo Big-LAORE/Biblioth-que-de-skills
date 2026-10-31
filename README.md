@@ -3,7 +3,7 @@ La plus grande bibliothèque de skills à utiliser dans Claude
 
 ## Contenu
 
-77 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
+132 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
 
 Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. Chaque dossier garde la licence de sa source.
 
@@ -49,6 +49,16 @@ Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. 
 | owasp-security | agamm/claude-code-owasp |
 | sharp-edges, differential-review, supply-chain-risk-auditor | trailofbits/skills |
 
+### Gérer le business : vente, rendez-vous, clients, incidents
+| Skill | Source |
+|---|---|
+| 44 skills petite entreprise (finances, vente, marketing, opérations, embauche), dont smb-router, smb-onboard, inbox-manager, speed-to-lead, lead-triage, invoice-chase, ticket-deflector, review-reputation, monday-brief, business-pulse | anthropics/knowledge-work-plugins |
+| schedule-meeting, handle-objection, call-prep, call-summary | anthropics/knowledge-work-plugins (vente) |
+| ticket-triage, draft-response, customer-escalation, kb-article | anthropics/knowledge-work-plugins (service client) |
+| incident-response, runbook, risk-assessment | anthropics/knowledge-work-plugins (ingénierie, opérations) |
+
+Les règles communes aux skills petite entreprise sont dans `.claude/shared/` : copiez ce dossier avec eux.
+
 ### Marketing
 | Skill | Source |
 |---|---|
@@ -77,3 +87,13 @@ Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. 
 - **Pour tous vos projets :** copier le dossier dans `~/.claude/skills/`.
 
 Certains skills s'appuient sur d'autres (par exemple writing-plans sur executing-plans, grill-me sur grilling) : copiez-les ensemble.
+
+## Faire tourner le business en votre absence
+
+Les skills donnent la méthode ; pour agir pendant que vous êtes absent, l'agent a aussi besoin de :
+
+1. **Connecteurs** : Gmail ou Outlook, Google Agenda, votre CRM, votre outil de facturation. Ils se branchent dans les réglages de Claude, avec une autorisation par outil (autoriser, demander, bloquer).
+2. **Tâches programmées** : par exemple un tri de la boîte mail chaque matin, un point sur les impayés chaque lundi. Créées dans le cloud (Claude Code sur le web), elles tournent même ordinateur éteint ; créées dans l'application de bureau, vérifiez si elle doit rester ouverte.
+3. **Votre validation** : par conception, ces skills rédigent tout mais n'envoient, ne publient et ne paient rien sans votre « oui ». Vous validez depuis votre téléphone. Les demandes suspectes (changement de RIB, paiement urgent) sont toujours bloquées.
+
+Pour commencer, dites à Claude : « get me started » (skill smb-onboard).
