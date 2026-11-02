@@ -4,7 +4,7 @@
     "name": "Big-LAORE"
   },
   "metadata": {
-    "description": "132 skills audités, rangés par domaine. Rapport d'audit : AUDIT-SKILLS.md",
+    "description": "133 skills audités, rangés par domaine. Rapport d'audit : AUDIT-SKILLS.md",
     "version": "1.0.0"
   },
   "plugins": [
@@ -218,6 +218,15 @@
         "./.claude/skills/obsidian-markdown",
         "./.claude/skills/obsidian-bases",
         "./.claude/skills/json-canvas"
+      ]
+    },
+    {
+      "name": "acces-web",
+      "description": "Accès web et réseaux sociaux en lecture seule : GitHub, YouTube, Reddit, X, LinkedIn, Bilibili… (Panniantong/Agent-Reach). Nécessite d'installer le programme agent-reach v1.6.1 depuis GitHub.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./.claude/skills/agent-reach"
       ]
     }
   ]

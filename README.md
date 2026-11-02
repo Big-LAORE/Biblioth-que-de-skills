@@ -1,9 +1,9 @@
 # Bibliothèque de skills Claude, auditée
 
-**132 skills Claude audités pour la sécurité**, choisis parmi les dépôts GitHub les plus étoilés de chaque domaine. Chaque skill a été relu avant d'être ajouté, et le rapport d'audit est public.
+**133 skills Claude audités pour la sécurité**, choisis parmi les dépôts GitHub les plus étoilés de chaque domaine. Chaque skill a été relu avant d'être ajouté, et le rapport d'audit est public.
 
-[![Skills](https://img.shields.io/badge/skills-132-blue)](#contenu)
-[![Plugins](https://img.shields.io/badge/plugins_Claude_Code-10-blueviolet)](#installation)
+[![Skills](https://img.shields.io/badge/skills-133-blue)](#contenu)
+[![Plugins](https://img.shields.io/badge/plugins_Claude_Code-11-blueviolet)](#installation)
 [![Audit](https://img.shields.io/badge/audit_s%C3%A9curit%C3%A9-publi%C3%A9-brightgreen)](AUDIT-SKILLS.md)
 [![Licences](https://img.shields.io/badge/licences-MIT_%7C_Apache_2.0_%7C_CC_BY--SA_%7C_GPL-lightgrey)](#contenu)
 [![Stars](https://img.shields.io/github/stars/Big-LAORE/Biblioth-que-de-skills?style=social)](https://github.com/Big-LAORE/Biblioth-que-de-skills/stargazers)
@@ -14,22 +14,22 @@ Installer un domaine en une commande, dans Claude Code :
 /plugin install business --marketplace Big-LAORE/Biblioth-que-de-skills
 ```
 
-Remplacez `business` par `methode-dev`, `agents-ia`, `web-react`, `design`, `securite`, `marketing`, `produit`, `science-donnees` ou `notes-obsidian`. Détails dans [Installation](#installation).
+Remplacez `business` par `methode-dev`, `agents-ia`, `web-react`, `design`, `securite`, `marketing`, `produit`, `science-donnees`, `notes-obsidian` ou `acces-web`. Détails dans [Installation](#installation).
 
 ---
 
 ## English
 
-**A security-audited library of 132 Claude skills**, picked from the most-starred and official skill repositories on GitHub in each field: development workflow, AI agent performance, web and React, design and motion (GSAP), defensive security, running a small business (sales, scheduling, customer support, incidents), marketing, product management, science and data, and Obsidian notes.
+**A security-audited library of 133 Claude skills**, picked from the most-starred and official skill repositories on GitHub in each field: development workflow, AI agent performance, web and React, design and motion (GSAP), defensive security, running a small business (sales, scheduling, customer support, incidents), marketing, product management, science and data, Obsidian notes, and read-only web and social media access.
 
 - **Audited:** every file was statically reviewed before inclusion (downloads, data exfiltration, secrets, destructive commands, obfuscation, hooks, hidden characters). Rejected skills and the fixes applied are documented in [AUDIT-SKILLS.md](AUDIT-SKILLS.md) (in French).
-- **Ten Claude Code plugins**, one per field. Install one with:
+- **Eleven Claude Code plugins**, one per field. Install one with:
 
   ```
   /plugin install <plugin> --marketplace Big-LAORE/Biblioth-que-de-skills
   ```
 
-  Plugins: `methode-dev` (dev workflow), `agents-ia` (AI agents), `web-react`, `design`, `securite` (security), `business`, `marketing`, `produit` (product), `science-donnees` (science and data), `notes-obsidian`.
+  Plugins: `methode-dev` (dev workflow), `agents-ia` (AI agents), `web-react`, `design`, `securite` (security), `business`, `marketing`, `produit` (product), `science-donnees` (science and data), `notes-obsidian`, `acces-web` (web and social media access).
 - **Sources:** obra/superpowers, mattpocock/skills, anthropics/skills, anthropics/knowledge-work-plugins, addyosmani/agent-skills, Vercel, Cloudflare, Trail of Bits, GreenSock, Hugging Face, K-Dense, kepano, and more. Each skill keeps its original license.
 - **No auto-run surprises:** no installed skill declares hooks, and the business skills draft first and ask before sending, posting or paying, unless the owner set that action up in advance.
 
@@ -37,7 +37,7 @@ Remplacez `business` par `methode-dev`, `agents-ia`, `web-react`, `design`, `sec
 
 ## Contenu
 
-132 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
+133 skills audités, rangés dans `.claude/skills/`. Claude Code les détecte automatiquement quand ce dépôt est ouvert. Le rapport d'audit complet (méthode, risques, skills écartés, corrections apportées) se trouve dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md).
 
 Les skills viennent des dépôts GitHub les plus étoilés dans chaque domaine. Chaque dossier garde la licence de sa source.
 
@@ -114,6 +114,13 @@ Les règles communes aux skills petite entreprise sont dans `.claude/shared/` : 
 |---|---|
 | obsidian-markdown, obsidian-bases, json-canvas | kepano/obsidian-skills |
 
+### Accès web et réseaux sociaux
+| Skill | Source |
+|---|---|
+| agent-reach | Panniantong/Agent-Reach (lecture seule : GitHub, YouTube, Reddit, X, LinkedIn, Bilibili, etc.) |
+
+Ce skill pilote un programme à installer à part, uniquement depuis GitHub et à la version auditée : `uv tool install git+https://github.com/Panniantong/Agent-Reach@v1.6.1`, puis `agent-reach setup`. N'installez jamais le paquet `agent-reach` de PyPI : c'est un autre projet. Détails et réserves dans [AUDIT-SKILLS.md](AUDIT-SKILLS.md), section R.
+
 ## Installation
 
 ### Méthode 1 : par plugin, dans Claude Code (recommandée)
@@ -132,6 +139,7 @@ La bibliothèque est aussi un catalogue de plugins Claude Code. Chaque domaine e
 | produit | Gestion de produit (7) | `/plugin install produit --marketplace Big-LAORE/Biblioth-que-de-skills` |
 | science-donnees | Science, données et IA (8) | `/plugin install science-donnees --marketplace Big-LAORE/Biblioth-que-de-skills` |
 | notes-obsidian | Notes avec Obsidian (3) | `/plugin install notes-obsidian --marketplace Big-LAORE/Biblioth-que-de-skills` |
+| acces-web | Accès web et réseaux sociaux en lecture seule (1, demande le programme agent-reach) | `/plugin install acces-web --marketplace Big-LAORE/Biblioth-que-de-skills` |
 
 Sur une version plus ancienne de Claude Code, ajoutez d'abord le catalogue, puis installez le plugin voulu :
 
@@ -155,7 +163,7 @@ cp -r Biblioth-que-de-skills/.claude/shared/* ~/.claude/shared/
 
 Le dossier `shared` est indispensable aux skills petite entreprise. Attention : un skill déjà installé sous le même nom est remplacé.
 
-Pour un seul projet, copiez plutôt les dossiers voulus dans le `.claude/skills/` de ce projet. Pour tester sans rien installer, ouvrez simplement ce dépôt avec Claude Code : les 132 skills y sont disponibles.
+Pour un seul projet, copiez plutôt les dossiers voulus dans le `.claude/skills/` de ce projet. Pour tester sans rien installer, ouvrez simplement ce dépôt avec Claude Code : les 133 skills y sont disponibles.
 
 ### Méthode 3 : application Claude (claude.ai, bureau, mobile)
 

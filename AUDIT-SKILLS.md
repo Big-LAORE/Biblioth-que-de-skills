@@ -250,3 +250,47 @@ Le dossier commun `.claude/shared/` (règles partagées par les 44 skills petite
 - Les skills vente, support, ingénierie et opérations renvoyaient à un fichier `CONNECTORS.md` situé à la racine de leur plugin. Ce fichier est copié dans chaque skill concerné et le lien corrigé.
 - Liens relatifs vérifiés : 404 liens dans les nouveaux skills, aucun cassé (hors deux exemples d'adresse fictive).
 - Total de la bibliothèque : 132 skills.
+
+---
+
+# Sixième ajout : Agent Reach (accès web et réseaux sociaux)
+
+Rapport du 1er novembre 2026. Audit statique du code, puis installation et essai dans un environnement cloud isolé.
+
+## R. Résultat
+
+| Élément | Détail |
+|---|---|
+| Skill | agent-reach (plugin `acces-web`) |
+| Source | Panniantong/Agent-Reach, licence MIT, tag `v1.6.1` (commit `7a38047`) |
+| Rôle | Lire en lecture seule GitHub, YouTube, Reddit, X, LinkedIn, Facebook, Instagram, Bilibili, Xiaohongshu, V2EX, Xueqiu, Boss Zhipin et des podcasts |
+| Nature | Contrairement aux autres skills de la bibliothèque, ce n'est pas qu'un texte : le skill pilote un programme Python (`agent-reach`) qui installe à son tour des outils (Node.js, uv, CloakBrowser, bili-cli, OpenCLI, ffmpeg) dans `~/.agent-reach/` |
+| Audit | APPROUVÉ AVEC RÉSERVES |
+
+**Points positifs constatés dans le code :**
+- Lecture seule par conception : aucune action de publication, de commentaire ou de message.
+- Jamais de mot de passe demandé ; aucun accès au trousseau du système (le navigateur dédié tourne avec `--use-mock-keychain`).
+- Installateur soigné : outils installés dans un dossier privé et suivis pour la désinstallation, versions figées pour la plupart, somme de contrôle vérifiée pour Node.js, scripts d'installation npm désactivés pour OpenCLI.
+- Aucun hook, aucune persistance (pas de cron, pas de modification de `.bashrc`), aucun code obfusqué, aucun caractère invisible.
+
+**Réserves :**
+- **Paquet PyPI usurpé :** le README officiel prévient que le paquet `agent-reach` de PyPI n'est pas ce projet, alors que plusieurs sites recommandent `pip install agent-reach`. Installer uniquement depuis GitHub.
+- **Réutilisation de vos connexions :** pour les sites qui demandent un compte, le programme copie les cookies de ce site depuis votre navigateur (via l'extension OpenCLI) vers son navigateur dédié. L'agent agit alors avec votre compte ; les plateformes peuvent restreindre un compte utilisé pour de la collecte. Utiliser un compte secondaire.
+- **Navigateur anti-détection :** CloakBrowser sert à éviter les blocages anti-robots. Respectez les conditions d'utilisation de chaque plateforme.
+- **Services tiers :** le canal web envoie les adresses lues à Jina Reader et les recherches à Exa ; la transcription envoie l'audio à Groq ou OpenAI si vous configurez une clé.
+- **Mises à jour :** `agent-reach update` passe à la dernière version, non auditée ; l'installation officielle (`releases/latest`) aussi.
+
+## S. Améliorations apportées
+
+- Le skill installé est la version anglaise générée par le programme (le modèle d'origine contient des emplacements `{{VERSION}}` et `{{CHANNEL_TABLE}}` remplis à l'installation).
+- Ajout d'une note d'audit en tête du SKILL.md : installation uniquement depuis GitHub à la version auditée (`uv tool install git+https://github.com/Panniantong/Agent-Reach@v1.6.1`), avertissement PyPI, demande d'accord avant `agent-reach update`, compte secondaire recommandé, services tiers nommés.
+- Les fichiers de référence (`references/`) sont en chinois, comme dans le dépôt d'origine.
+
+## T. Essai réel
+
+- Installation depuis le code audité, puis `agent-reach setup` : 5 canaux par défaut prêts, skill relié dans `~/.claude/skills`.
+- Recherche GitHub en direct : fonctionne.
+- Canal web : bloqué dans l'environnement de test par son pare-feu (Exa et Jina non autorisés), pas par un défaut du programme.
+- Commande d'installation figée vérifiée : `uv tool install git+https://github.com/Panniantong/Agent-Reach@v1.6.1` installe bien le programme.
+
+Total de la bibliothèque : 133 skills, 11 plugins.
